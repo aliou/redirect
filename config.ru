@@ -1,8 +1,7 @@
 require 'rack/rewrite'
 
 # Expects ENV['REDIRECTS'] to be a ruby hash of source hostnames to destination hostnames. E.g.:
-#   "{'old.domain.com' => 'new.domain.com'}"
-REDIRECTS = { 'losingti.me' => 'aliou.me' }
+REDIRECTS = { ENV.fetch('OLD_URL') => ENV.fetch('NEW_URL') }
 
 use Rack::Rewrite do
 
